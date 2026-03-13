@@ -1,0 +1,94 @@
+# .gitignore for React (Vite) frontend + PHP backend + MySQL dumps
+
+# Node / JS
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Vite / Build
+dist/
+.vite/
+build/
+
+# Environment files (do NOT commit secrets)
+.env
+.env.*
+.env.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Cache
+.cache/
+.parcel-cache/
+
+# PHP / Composer
+vendor/
+composer.phar
+/.phpunit.result.cache
+
+# MySQL / DB dumps and local DB files
+*.sql
+*.sql.gz
+*.sqlite
+*.db
+*.sql.bak
+
+# SSL / keys
+*.key
+*.pem
+*.crt
+
+# Static uploads/temp
+/uploads/
+/tmp/
+
+# Other
+/.history/
+coverage/
+.nyc_output/
+
+# If you want to track a specific SQL file (eg. schema.sql), add an exception here:
+!newfolder/schema.sql
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env

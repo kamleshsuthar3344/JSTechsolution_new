@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://www.earningsharthi.in/</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.earningsharthi.in/about</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://www.earningsharthi.in/services</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Core Service Pages -->
+  <url>
+    <loc>https://www.earningsharthi.in/website-development</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/digital-marketing</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/seo-services</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/shopify-development</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/wordpress-development</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/ui-ux-design</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/backlink</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Partnership & Referral -->
+  <url>
+    <loc>https://www.earningsharthi.in/partnership</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/referral-program</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Content & Careers -->
+  <url>
+    <loc>https://www.earningsharthi.in/blog</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.7</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/careers</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/faq</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Pricing & Offer -->
+  <url>
+    <loc>https://www.earningsharthi.in/pricing</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/offer</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.earningsharthi.in/portfolio</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.earningsharthi.in/contact</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://www.earningsharthi.in/terms</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.earningsharthi.in/privacy</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+</urlset>

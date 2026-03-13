@@ -1,0 +1,313 @@
+/* ✅ @import MUST be at the top */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    line-height: 1.2;
+  }
+}
+
+/* Theme variables - Modern Summer Rajasthan Edition */
+:root {
+  --bg: #fffcf8; /* Subtle warm off-white */
+  --surface: #ffffff;
+  --text: #2d241e; /* Deeper brown for better readability */
+  --muted: #8d7b6d;
+  --accent: #e67e22; /* Premium Saffron */
+  --accent-2: #d35400; /* Rich Burnt Orange */
+  --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  --scrollbar-track: #fdf5e6;
+  --scrollbar-thumb: #e67e22;
+  --selection: #e67e22;
+  
+  /* Modern Summer Palette */
+  --saffron-deep: #f39c12;
+  --sienna-burnt: #e67e22;
+  --sand-warm: #f1c40f;
+  --sun-gold: #ffcc33;
+  --glow-warm: rgba(230, 126, 34, 0.15);
+}
+
+.dark {
+  --bg: #120e0a;
+  --surface: #1c1612;
+  --text: #fdf5e6;
+  --muted: #a89080;
+  --accent: #f39c12;
+  --accent-2: #e67e22;
+  --card-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  --scrollbar-track: #1c1612;
+  --scrollbar-thumb: #f39c12;
+  --selection: #f39c12;
+}
+
+/* Base Refinements */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+  }
+
+  .bg-gradient-secondary {
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: premium-float 5s ease-in-out infinite;
+  }
+
+  @keyframes premium-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(0.5deg); }
+  }
+
+  .animate-marquee {
+    display: inline-flex;
+    animation: marquee-slow 40s linear infinite;
+  }
+
+  @keyframes marquee-slow {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+}
+
+/* ☀️ Refined Summer Utilities */
+.sun-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: linear-gradient(to bottom,
+      rgba(243, 156, 18, 0.25) 0%,
+      rgba(243, 156, 18, 0.1) 50%,
+      transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ☀️ Modern Premium Summer Button */
+.btn-summer {
+  background-color: var(--accent) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 4px 14px 0 rgba(230, 126, 34, 0.39) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-summer:hover {
+  background-color: var(--accent-2) !important;
+  box-shadow: 0 6px 20px rgba(230, 126, 34, 0.23) !important;
+  transform: translateY(-2px);
+}
+
+/* Modern Summer Glassmorphism */
+.summer-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.dark .summer-glass {
+  background: rgba(28, 22, 18, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Golden Hour Pulse */
+@keyframes golden-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 153, 51, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(255, 153, 51, 0.5); }
+}
+
+.animate-summer-pulse:hover {
+  animation: golden-pulse 2s ease-in-out infinite;
+  background: var(--summer-saffron) !important;
+  color: white !important;
+}
+
+/* Rest of your CSS remains same */
+
+/* Rest of your CSS remains same */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4C1D95;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #6A0DAD;
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: #6A0DAD;
+  color: white;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Dark-mode fallbacks and component mappings using variables */
+.dark .bg-white {
+  background-color: var(--surface) !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: var(--surface) !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: var(--surface) !important;
+}
+
+.dark .text-gray-900 {
+  color: var(--text) !important;
+}
+
+.dark .text-gray-800 {
+  color: var(--text) !important;
+}
+
+.dark .text-gray-700 {
+  color: var(--muted) !important;
+}
+
+.dark .text-gray-600 {
+  color: var(--muted) !important;
+}
+
+.dark .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.dark .border-gray-300 {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Gradient adjustments: reduce extreme light stops in dark mode */
+.dark .from-blue-50,
+.dark .from-purple-50,
+.dark .from-pink-50,
+.dark .from-green-50,
+.dark .from-slate-50 {
+  --tw-gradient-from: var(--surface) !important;
+}
+
+.dark .to-purple-50,
+.dark .to-blue-50,
+.dark .to-indigo-50,
+.dark .to-pink-50 {
+  --tw-gradient-to: var(--bg) !important;
+}
+
+.dark .via-blue-50,
+.dark .via-purple-50 {
+  --tw-gradient-via: var(--surface) !important;
+}
+
+/* Inputs in dark mode */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  outline-color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--selection);
+  color: white;
+}
+
+/* Scrollbar dark hover */
+.dark ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
