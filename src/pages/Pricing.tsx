@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import {
   Check, Zap, Shield, Clock, Users, TrendingUp, Video, Mail,
   MessageCircle, CreditCard, Crown, Rocket, Award, Sparkles, Phone,
-  Search, ThumbsUp, MapPin, BarChart3, Instagram, Gift, X
+  Search, ThumbsUp, MapPin, BarChart3, Instagram, Gift, X, Smartphone, Copy
 } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 import InquiryModal from '../components/InquiryModal';
-import { waLink, PHONE_NUMBER, WHATSAPP_NUMBER } from '../config/contact';
+import { PHONE_NUMBER, WHATSAPP_NUMBER } from '../config/contact';
 import {
   websiteIndustryPackages,
   seoServices,
@@ -27,11 +27,7 @@ import {
 } from '../data/pricing';
 import { usePartnerTracking } from '../hooks/usePartnerTracking';
 
-declare global {
-  interface Window {
-    Razorpay: any;
-  }
-}
+
 
 interface Tab {
   id: string;
@@ -48,7 +44,7 @@ const Pricing: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('website');
   const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [manualRefCode, setManualRefCode] = useState<string>('');
-  const { recordCommission, getCookie } = usePartnerTracking();
+  const { getCookie } = usePartnerTracking();
 
   // Handle Direct Purchase & Category Navigation
   React.useEffect(() => {
@@ -61,8 +57,10 @@ const Pricing: React.FC = () => {
     // Handle Category Auto-Switch
     if (category) {
       const normalizedCat = category.toLowerCase().split('-')[0];
-      const match = tabs.find(t => t.id.includes(normalizedCat) || normalizedCat.includes(t.id));
-      if (match) setActiveTab(match.id);
+      if (normalizedCat) {
+        const match = tabs.find(t => t.id.includes(normalizedCat) || normalizedCat.includes(t.id));
+        if (match) setActiveTab(match.id);
+      }
     }
 
     if (action === 'buy' && service && amount) {
@@ -91,37 +89,7 @@ const Pricing: React.FC = () => {
     setIsInquiryOpen(true);
   };
 
-  const RAZORPAY_KEY_ID = 'rzp_live_RtsLg1lwnDuupa';
 
-  const handlePayment = async (amount: number, serviceName: string): Promise<void> => {
-    try {
-      const amountInPaise = Math.round(amount * 100);
-      const options = {
-        key: RAZORPAY_KEY_ID,
-        amount: amountInPaise,
-        currency: 'INR',
-        name: 'JSTECHSOLUTION Digital Marketing',
-        description: `${serviceName} - Advance Payment`,
-        handler: async function (response: any) {
-          alert(`🎉 Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
-
-          // Record commission using unified hook
-          await recordCommission(amount, serviceName, response.razorpay_payment_id);
-
-          const message = `✅ Payment Successful!\n\nService: ${serviceName}\nAmount: ₹${amount}\nPayment ID: ${response.razorpay_payment_id}\n\nPlease share next steps.`;
-          window.open(waLink(message), '_blank');
-        },
-        prefill: { name: 'Customer Name', email: 'customer@example.com', contact: PHONE_NUMBER },
-        notes: { service: serviceName },
-        theme: { color: '#2563eb' }
-      };
-      const paymentObject = new window.Razorpay(options);
-      paymentObject.open();
-    } catch (error) {
-      console.error('Payment Error:', error);
-      alert('❌ Payment failed. Please try again or contact support.');
-    }
-  };
 
   const openPaymentModal = (serviceName: string, currentPrice: number, planName?: string): void => {
     const discountedPrice = Math.floor(currentPrice * 0.95);
@@ -510,10 +478,22 @@ const Pricing: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       <Helmet>
-        <title>Complete Digital Marketing Services | Website, SEO, Backlinks | JSTECHSOLUTION</title>
-        <meta name="description" content="Complete digital marketing packages: Website Development from ₹2,500, SEO from ₹2,500, Backlinks from ₹2,500, GMB from ₹1,250. 70% OFF + 5% Extra on Advance Payment." />
-        <meta name="keywords" content="website development, SEO services, backlink packages, GMB setup, digital marketing India" />
+        <title>Affordable Pricing for Web Development & SEO | JS TECH SOLUTION</title>
+        <meta name="description" content="Check our low-cost digital marketing packages. Website development starting from ₹2,499. SEO, GMB, and Backlink services at unbeatable prices. 70% OFF + 5% extra on advance!" />
+        <meta name="keywords" content="web development pricing, SEO package cost, digital marketing price India, budget SEO services, JS TECH SOLUTION pricing" />
         <link rel="canonical" href="https://JSTECHSOLUTION.in/pricing" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/pricing" />
+        <meta property="og:title" content="Budget-Friendly Digital Marketing Prices | JS TECH SOLUTION" />
+        <meta property="og:description" content="Save big on high-quality web and SEO services. Packages starting from ₹2,499." />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-pricing.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Digital Marketing Pricing - JS TECH SOLUTION" />
+        <meta name="twitter:description" content="View our low-cost, high-value digital service packages." />
       </Helmet>
 
       <InquiryModal
@@ -729,33 +709,54 @@ const Pricing: React.FC = () => {
                 </p>
               </div>
 
-              {/* Actions */}
-              <div className="flex flex-col gap-4">
-                <button
-                  onClick={() => handlePayment(paymentAmount, paymentService)}
-                  className="w-full py-5 rounded-[1.5rem] font-black text-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-4 shadow-[0_20px_40px_-12px_rgba(34,197,94,0.4)] bg-gradient-to-r from-green-500 to-emerald-600 text-white active:scale-95"
-                >
-                  <CreditCard className="h-6 w-6" /> Pay ₹{paymentAmount.toLocaleString()} Now
-                </button>
+              {/* UPI Payment Section */}
+              <div className="bg-white border-2 border-slate-100 rounded-3xl p-5 shadow-sm text-center mt-2">
+                <div className="text-slate-500 font-bold text-sm mb-4 uppercase tracking-wider">Pay securely via UPI</div>
+                <div className="flex justify-center mb-6">
+                  <img 
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(`upi://pay?pa=kamleshks123@ybl&pn=JS%20Tech%20Solution&am=${paymentAmount}&cu=INR`)}`} 
+                    alt="Scan to Pay"
+                    className="w-40 h-40 md:w-48 md:h-48 object-contain rounded-2xl border-4 border-slate-50 p-2 shadow-inner"
+                  />
+                </div>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={`upi://pay?pa=kamleshks123@ybl&pn=JS%20Tech%20Solution&am=${paymentAmount}&cu=INR`}
+                    className="w-full py-4 rounded-[1.5rem] font-black text-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-3 shadow-[0_10px_20px_-10px_rgba(34,197,94,0.4)] bg-gradient-to-r from-green-500 to-emerald-600 text-white active:scale-95"
+                  >
+                    <Smartphone className="h-6 w-6" /> Pay ₹{paymentAmount.toLocaleString()} via UPI App
+                  </a>
+                  <button
+                    onClick={() => {
+                       navigator.clipboard.writeText('kamleshks123@ybl');
+                       alert("UPI ID copied: kamleshks123@ybl");
+                    }}
+                    className="w-full py-3 rounded-xl font-bold text-sm text-slate-600 bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:text-slate-800 flex justify-center items-center gap-2 transition-colors"
+                  >
+                    <Copy className="h-4 w-4" /> Copy UPI ID: kamleshks123@ybl
+                  </button>
+                </div>
+              </div>
+
+              {/* Discussion CTA */}
+              <div className="mt-2">
                 <a
                   href={getWhatsAppUrl(`Hello JSTECHSOLUTION! I want to discuss "${paymentService}" before making payment. Please provide more details.`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-white border-2 border-slate-100 hover:border-blue-500 hover:bg-blue-50 text-slate-600 py-4 rounded-[1.5rem] font-bold transition-all flex items-center justify-center gap-3 text-lg"
+                  className="w-full bg-white border-2 border-slate-100 hover:border-blue-500 hover:bg-blue-50 text-slate-600 py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-3"
                 >
-                  <MessageCircle className="h-6 w-6 text-green-500" /> Discuss on WhatsApp
+                  <MessageCircle className="h-5 w-5 text-green-500" /> Discuss on WhatsApp
                 </a>
               </div>
 
-              <div className="flex items-center justify-center gap-2 text-slate-400 text-xs font-bold">
-                <Shield className="h-4 w-4" /> 🔒 Secure SSL Encrypted Payment by Razorpay
+              <div className="flex items-center justify-center gap-2 mt-4 text-slate-400 text-xs font-bold">
+                <Shield className="h-4 w-4" /> 🔒 Secure Payments via BHIM, GPay, PhonePe, Paytm
               </div>
             </div>
           </div>
         </div>
       )}
-
-      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       <style>{`
         @keyframes pop-in {
           0% { transform: scale(0.8); opacity: 0; }

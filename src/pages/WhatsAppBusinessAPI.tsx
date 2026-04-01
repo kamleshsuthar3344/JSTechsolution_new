@@ -32,6 +32,8 @@ import { waLink } from '../config/contact';
 import Breadcrumbs from '../components/Breadcrumbs';
 import InquiryModal from '../components/InquiryModal';
 import { whatsappServices } from '../data/pricing/digitalMarketing';
+import ServiceSchema from '../components/Schema/ServiceSchema';
+import BreadcrumbSchema from '../components/Schema/BreadcrumbSchema';
 
 const WhatsAppBusinessAPI: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,10 +61,38 @@ const WhatsAppBusinessAPI: React.FC = () => {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-300 selection:bg-green-100 selection:text-green-900">
             <Helmet>
-                <title>WhatsApp Business API Services | Official Partner | JS TECH SOLUTION</title>
-                <meta name="description" content="Official WhatsApp Business API services. Automated, secure, and personalized communication through notifications, chatbots, and CRM integration." />
-                <meta name="keywords" content="WhatsApp Business API, WhatsApp Chatbot, Bulk WhatsApp, WhatsApp Marketing, WhatsApp Integration" />
+                <title>Official WhatsApp Business API Service Provider | JS TECH SOLUTION</title>
+                <meta name="description" content="Official WhatsApp Business API solutions for scale. Automate support with AI chatbots, send bulk notifications, and integrate with your CRM for seamless customer engagement." />
+                <meta name="keywords" content="official WhatsApp Business API India, WhatsApp chatbot development, bulk WhatsApp messaging service, WhatsApp CRM integration, business automation" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/whatsapp-business-api" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/whatsapp-business-api" />
+                <meta property="og:title" content="JS TECH SOLUTION | Official WhatsApp Business API Solutions" />
+                <meta property="og:description" content="Transform your business communication with official WhatsApp API. Automation, Chatbots, and Scale." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-whatsapp.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="WhatsApp API for Business - JS TECH SOLUTION" />
+                <meta name="twitter:description" content="The most reliable WhatsApp API infrastructure for your brand." />
             </Helmet>
+
+            <ServiceSchema 
+                name="WhatsApp Business API Services" 
+                description="Official WhatsApp Business API solutions for scale. Automate support with AI chatbots, send bulk notifications, and integrate with your CRM for seamless customer engagement." 
+                provider={{ name: "JS TECH SOLUTION" }} 
+                areaServed="India" 
+                url="https://jstechsolution.in/whatsapp-business-api" 
+            />
+            <BreadcrumbSchema 
+                items={[
+                    { name: "Home", item: "https://jstechsolution.in/" },
+                    { name: "Services", item: "https://jstechsolution.in/services" },
+                    { name: "WhatsApp Business API", item: "https://jstechsolution.in/whatsapp-business-api" }
+                ]} 
+            />
 
             <Breadcrumbs />
 

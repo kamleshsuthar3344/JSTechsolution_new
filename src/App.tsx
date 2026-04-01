@@ -104,9 +104,6 @@ function App() {
 
               {/* Canonical URL */}
               <link rel="canonical" href="https://JSTECHSOLUTION.in/" />
-
-              {/* ✅ Razorpay Script for Payment Functionality */}
-              <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
             </Helmet>
 
             {/* GTM Noscript - for browsers without JavaScript */}

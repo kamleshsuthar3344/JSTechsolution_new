@@ -55,8 +55,22 @@ const DigitalAcademy: React.FC = () => {
     return (
         <div className="min-h-screen bg-slate-50 overflow-x-hidden text-slate-900">
             <Helmet>
-                <title>Digital Academy | JS TECH SOLUTION Certification Programs</title>
-                <meta name="description" content="Learn high-income digital skills starting from just ₹1,100. Practical training in Website Development, Digital Marketing, SEO, and Graphic Design." />
+                <title>Digital Academy | Master High-Income Skills | JS TECH SOLUTION</title>
+                <meta name="description" content="Join Rajasthan's leading digital hub. Learn Web Development, SEO, and Graphic Design from industry experts. 100% placement support and certification." />
+                <meta name="keywords" content="digital marketing course Jaipur, learn web development India, SEO training certification, high income skills academy, JS TECH SOLUTION digital academy" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/digital-academy" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/digital-academy" />
+                <meta property="og:title" content="JS TECH SOLUTION | Digital Academy" />
+                <meta property="og:description" content="Launch your digital career today. Practical skills for the modern economy." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-academy.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Master Digital Skills" />
+                <meta name="twitter:description" content="Industry-ready certification programs at Rajasthan's top digital hub." />
             </Helmet>
 
             {/* Hero Section */}

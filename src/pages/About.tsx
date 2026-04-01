@@ -1,13 +1,11 @@
 import { waLink } from '../config/contact';
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 const About: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    setIsVisible(true);
+    // Component mounted
   }, []);
 
   // Team members with images
@@ -290,16 +288,28 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>About JS TECH SOLUTION | Affordable Digital Marketing Agency</title>
+        <title>About Us | Leading Digital Marketing & Web Agency - JS TECH SOLUTION</title>
         <meta
           name="description"
-          content="JS TECH SOLUTION - Your affordable digital marketing partner. Website development from ₹4,999, SEO, social media marketing & Google Ads. 150+ clients. 300+ projects."
+          content="Learn about JS TECH SOLUTION - Jaipur's trusted partner for website development, SEO, and social media marketing. 150+ satisfied clients and 300+ successful projects."
         />
         <meta
           name="keywords"
-          content="digital marketing agency, affordable website development, SEO services, social media marketing, Google Ads, Meta Ads, startup business solutions"
+          content="about JS TECH SOLUTION, digital marketing team Jaipur, web development history, professional SEO experts"
         />
         <link rel="canonical" href="https://JSTECHSOLUTION.in/about" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/about" />
+        <meta property="og:title" content="About JS TECH SOLUTION | Our Mission & Team" />
+        <meta property="og:description" content="Trusted by 150+ clients for high-performance digital solutions. Learn our story." />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-about.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About JS TECH SOLUTION" />
+        <meta name="twitter:description" content="Jaipur's top digital agency. Expert team, proven results." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -695,7 +705,7 @@ const About: React.FC = () => {
         <span className="text-2xl">💚</span>
       </button>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in-up {
           from {
             opacity: 0;

@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { websiteIndustryPackages } from '../data/pricing';
+import ServiceSchema from '../components/Schema/ServiceSchema';
+import BreadcrumbSchema from '../components/Schema/BreadcrumbSchema';
 
 const WebsiteDevelopment: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,14 +40,41 @@ const WebsiteDevelopment: React.FC = () => {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
             <Helmet>
-                <title>India's Top Website Development Company | Jaipur, Rajasthan | JS TECH SOLUTION</title>
+                <title>Top Website Development Company in India & Jaipur | JS TECH SOLUTION</title>
                 <meta
                     name="description"
-                    content="Experience world-class website development with India's top agency. Serving Jaipur, Rajasthan, and NCR. Custom e-commerce, corporate, and NGO websites."
+                    content="Experience world-class website development. Serving Jaipur, Rajasthan, and businesses worldwide. Custom e-commerce, corporate, and CMS-based websites starting at ₹4,999."
                 />
-                <meta name="keywords" content="top website development company India, web design Jaipur, Gurugram web developers, Noida website development, NCR digital services" />
+                <meta name="keywords" content="top website development company India, best web design Jaipur, custom web developers, e-commerce website development India" />
                 <link rel="canonical" href="https://JSTECHSOLUTION.in/website-development" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/website-development" />
+                <meta property="og:title" content="Custom Web Development Services | JS TECH SOLUTION" />
+                <meta property="og:description" content="Build a robust, scalable, and high-performance website for your brand. Get a free quote today!" />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-web-dev.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Website Development Experts - JS TECH SOLUTION" />
+                <meta name="twitter:description" content="Creating future-ready websites for businesses of all sizes." />
             </Helmet>
+
+            <ServiceSchema 
+                name="Website Development Services" 
+                description="Experience world-class website development. Serving Jaipur, Rajasthan, and businesses worldwide. Custom e-commerce, corporate, and CMS-based websites starting at ₹4,999." 
+                provider={{ name: "JS TECH SOLUTION" }} 
+                areaServed="India" 
+                url="https://jstechsolution.in/website-development" 
+            />
+            <BreadcrumbSchema 
+                items={[
+                    { name: "Home", item: "https://jstechsolution.in/" },
+                    { name: "Services", item: "https://jstechsolution.in/services" },
+                    { name: "Website Development", item: "https://jstechsolution.in/website-development" }
+                ]} 
+            />
 
             <Breadcrumbs />
 

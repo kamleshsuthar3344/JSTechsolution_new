@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, HelpCircle, ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
 
 import { waLink, PHONE_DISPLAY } from '../config/contact';
+import FAQSchema from '../components/Schema/FAQSchema';
 
 const FAQ: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -99,9 +100,25 @@ const FAQ: React.FC = () => {
     return (
         <div className="min-h-screen bg-gray-50 py-12">
             <Helmet>
-                <title>Frequently Asked Questions (FAQ) | JS TECH SOLUTION</title>
-                <meta name="description" content="Find answers to common questions about our digital marketing and web development services." />
+                <title>FAQ | Frequently Asked Questions | JS TECH SOLUTION</title>
+                <meta name="description" content="Have questions about website development, SEO, or digital marketing? Find detailed answers in our FAQ section or contact our experts directly." />
+                <meta name="keywords" content="digital marketing FAQ, website development questions, JS TECH SOLUTION help, SEO service details Jaipur" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/faq" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/faq" />
+                <meta property="og:title" content="JS TECH SOLUTION | Frequently Asked Questions" />
+                <meta property="og:description" content="All your digital marketing questions answered in one place." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-faq.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content="FAQ - JS TECH SOLUTION" />
+                <meta name="twitter:description" content="Everything you need to know about our services." />
             </Helmet>
+
+            <FAQSchema faqs={faqs.flatMap(cat => cat.questions.map(f => ({ question: f.q, answer: f.a })))} />
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <Link to="/" className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-8">

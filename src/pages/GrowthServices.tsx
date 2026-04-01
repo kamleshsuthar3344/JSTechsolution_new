@@ -15,18 +15,6 @@ import {
   Shield,
   Search,
   Globe,
-  ShoppingCart,
-  ThumbsUp,
-  Eye,
-  Target,
-  Sparkles,
-  Gift,
-  Award,
-  Heart,
-  Quote,
-  ChevronDown,
-  MapPin,
-  Mail,
   Zap,
   Instagram,
   Facebook,
@@ -34,6 +22,8 @@ import {
   TrendingUp,
   DollarSign,
   BadgeCheck,
+  Smartphone,
+  Copy
 } from "lucide-react";
 import {
   instagramServices,
@@ -59,7 +49,7 @@ const GrowthServices: React.FC = () => {
   const [hasFlashSaleOccurred, setHasFlashSaleOccurred] = useState(false);
   const [offerExpired, setOfferExpired] = useState(false);
   const [activeCategory, setActiveCategory] = useState("instagram");
-  const { recordCommission } = usePartnerTracking();
+  const {} = usePartnerTracking();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -84,7 +74,7 @@ const GrowthServices: React.FC = () => {
   const [originalAmount, setOriginalAmount] = useState(0);
 
   // ✅ Environment variables
-  const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY_ID;
+
 
   const categories = [
     { id: "instagram", name: "Instagram", icon: <Instagram className="h-4 w-4 md:h-5 md:w-5" />, color: "bg-pink-600" },
@@ -265,69 +255,7 @@ const GrowthServices: React.FC = () => {
     }
   };
 
-  const initiateRazorpayPayment = async () => {
-    try {
-      if (!window.Razorpay) {
-        const script = document.createElement('script');
-        script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-        script.async = true;
-        document.body.appendChild(script);
 
-        await new Promise((resolve) => {
-          script.onload = resolve;
-        });
-      }
-
-      const options = {
-        key: RAZORPAY_KEY_ID,
-        amount: paymentAmount * 100,
-        currency: 'INR',
-        name: 'JS TECH SOLUTION - Premium Growth Services',
-        description: `${selectedService?.name} - Quantity: ${quantity}`,
-        image: '/logo.png',
-        handler: async function (response: any) {
-          // Open success form after payment
-          setIsSuccessFormOpen(true);
-          setSuccessFormData(prev => ({
-            ...prev,
-            service: paymentService,
-            amount: paymentAmount.toString(),
-            quantity: quantity.toString()
-          }));
-          setIsPaymentOpen(false);
-
-          // Record commission
-          await recordCommission(paymentAmount, paymentService, response.razorpay_payment_id);
-
-          // Mark flash sale as used
-          if (isFlashSale) {
-            setHasFlashSaleOccurred(true);
-            localStorage.setItem('flashSaleOccurred', 'true');
-          }
-        },
-        prefill: {
-          name: formData.name || 'Customer',
-          email: formData.email || 'customer@example.com',
-          contact: formData.phone || ''
-        },
-        notes: {
-          service: paymentService,
-          quantity: quantity.toString(),
-          type: 'Growth Service'
-        },
-        theme: {
-          color: '#F59E0B'
-        }
-      };
-
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
-
-    } catch (error) {
-      console.error('Payment error:', error);
-      alert('Payment failed. Please try again or contact us on WhatsApp.');
-    }
-  };
 
   // Sparkles Component
   const SparklesEffect = () => (
@@ -366,10 +294,24 @@ const GrowthServices: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50" style={{ fontFamily: "'Haboro Serif', serif" }}>
       <Helmet>
-        <title>Premium Growth Services - Instagram, Facebook, LinkedIn, SEO | JS TECH SOLUTION</title>
-        <meta name="description" content="Premium growth services: Instagram followers, likes, views | Facebook services | LinkedIn followers | Website traffic | SEO Backlinks. Boost your social media growth with JS TECH SOLUTION!" />
-        <link href="https://fonts.googleapis.com/css2?family=Haboro+Serif:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <title>Rapid Business Growth Services | Instagram, Facebook & SEO Growth | JS TECH SOLUTION</title>
+        <meta name="description" content="Accelerate your brand growth with our specialized growth services. Instagram followers, Facebook engagement, LinkedIn networking, and rapid SEO results starting at unbeatable prices." />
+        <meta name="keywords" content="rapid business growth, social media growth services, Instagram growth India, Facebook marketing growth, LinkedIn Lead Generation" />
+        <link rel="canonical" href="https://JSTECHSOLUTION.in/growth-services" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/growth-services" />
+        <meta property="og:title" content="JS TECH SOLUTION | Accelerate Your Digital Growth" />
+        <meta property="og:description" content="Dominate your niche with our data-driven growth strategies for social media and search." />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-growth.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Business Growth Experts - JS TECH SOLUTION" />
+        <meta name="twitter:description" content="Scale your brand faster than ever with our proven growth hacks." />
       </Helmet>
+      <link href="https://fonts.googleapis.com/css2?family=Haboro+Serif:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
       {/* Developer Reset Button (Hidden in production) */}
       {process.env.NODE_ENV === 'development' && (
@@ -802,24 +744,51 @@ const GrowthServices: React.FC = () => {
                 </div>
               </div>
 
-              <button
-                onClick={initiateRazorpayPayment}
-                className={`w-full py-3 md:py-4 rounded-xl font-bold transition-all hover:scale-105 flex items-center justify-center gap-2 md:gap-3 text-base md:text-lg shadow-lg ${isFlashSale && !offerExpired
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white'
-                  : selectedService.id === 'seo-backlinks-premium'
-                    ? 'bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white'
-                    : 'bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white'
-                  }`}
-              >
-                <CreditCard className="h-4 w-4 md:h-5 md:w-5" />
-                Pay ₹{paymentAmount.toLocaleString()} Now
-              </button>
+              {/* UPI Payment Section */}
+              <div className="bg-white border-2 border-slate-100 rounded-2xl p-4 shadow-sm text-center">
+                <div className="text-slate-500 font-bold text-xs mb-3 uppercase tracking-wider">Pay securely via UPI QR</div>
+                <div className="flex justify-center mb-4">
+                  <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(`upi://pay?pa=kamleshks123@ybl&pn=JS%20Tech%20Solution&am=${paymentAmount}&cu=INR`)}`}
+                    alt="Scan to Pay"
+                    className="w-32 h-32 md:w-36 md:h-36 object-contain rounded-xl border-4 border-slate-50 p-1 shadow-inner"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <a
+                    href={`upi://pay?pa=kamleshks123@ybl&pn=JS%20Tech%20Solution&am=${paymentAmount}&cu=INR`}
+                    className="w-full py-3 rounded-xl font-black text-base transition-all hover:scale-[1.02] flex items-center justify-center gap-2 shadow-lg bg-gradient-to-r from-green-500 to-emerald-600 text-white active:scale-95"
+                    onClick={() => {
+                        // Mark as success intent
+                        setIsSuccessFormOpen(true);
+                        setSuccessFormData(prev => ({
+                            ...prev,
+                            service: paymentService,
+                            amount: paymentAmount.toString(),
+                            quantity: quantity.toString()
+                        }));
+                        setIsPaymentOpen(false);
+                    }}
+                  >
+                    <Smartphone className="h-5 w-5" /> Pay via UPI App
+                  </a>
+                  <button
+                    onClick={() => {
+                       navigator.clipboard.writeText('kamleshks123@ybl');
+                       alert("UPI ID copied: kamleshks123@ybl");
+                    }}
+                    className="w-full py-2 rounded-lg font-bold text-xs text-slate-600 bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:text-slate-800 flex justify-center items-center gap-2 transition-colors"
+                  >
+                    <Copy className="h-3 w-3" /> Copy UPI ID: kamleshks123@ybl
+                  </button>
+                </div>
+              </div>
 
               <button
                 onClick={() => { setIsPaymentOpen(false); setIsFormOpen(true); }}
-                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-2 md:py-3 rounded-xl font-bold transition-all hover:scale-105 text-center block border-2 border-blue-300 text-sm md:text-base"
+                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold transition-all hover:scale-105 text-center block border-2 border-blue-400 text-sm shadow-md"
               >
-                💬 Contact First Instead
+                💬 Need help? Contact Expert First
               </button>
             </div>
           </div>

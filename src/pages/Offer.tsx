@@ -2,43 +2,29 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import {
   Check,
-  Star,
-  Rocket,
+  Rocket, // Kept one Rocket
   Clock,
-  Users,
   MessageCircle,
-  Phone,
   X,
-  Send,
-  CreditCard,
-  Shield,
-  Search,
-  Globe,
-  ShoppingCart,
-  ThumbsUp,
-  Eye,
-  Target,
-  Sparkles,
-  Gift,
-  Award,
-  Heart,
-  Quote,
-  ChevronDown,
-  MapPin,
-  Mail,
+  Smartphone,
+  Copy,
   Zap,
-  Crown,
+  ArrowRight,
+  Shield,
+  Award,
   TrendingUp,
-  ArrowRight
+  Gift,
+  Sparkles,
+  Crown,
+  Phone,
+  Mail,
+  MapPin,
+  CreditCard,
+  Send
 } from "lucide-react";
 import { WHATSAPP_NUMBER } from '../config/contact';
 
-// Razorpay types
-declare global {
-  interface Window {
-    Razorpay: any;
-  }
-}
+
 
 interface PriceData {
   [key: string]: {
@@ -100,7 +86,6 @@ const Offer: React.FC = () => {
   const [originalAmount, setOriginalAmount] = useState<number>(0);
   const [isGoogleService, setIsGoogleService] = useState<boolean>(false);
 
-  const RAZORPAY_KEY_ID = "rzp_live_RtsLg1lwnDuupa";
   // const WHATSAPP_NUMBER = "9521281509"; // Removed local constant to use imported config
 
   // Initialize timers from localStorage
@@ -383,6 +368,7 @@ const Offer: React.FC = () => {
   // Payment Functions
   const openPaymentModal = (serviceKey: string): void => {
     const service = priceData[serviceKey];
+    if (!service) return;
     const isConsultation = serviceKey === 'consultation';
     const isGoogle = serviceKey === 'google';
 
@@ -413,84 +399,32 @@ const Offer: React.FC = () => {
     setIsPaymentOpen(true);
   };
 
-  const initiateRazorpayPayment = async (): Promise<void> => {
-    try {
-      if (!window.Razorpay) {
-        const script = document.createElement('script');
-        script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-        script.async = true;
-        document.body.appendChild(script);
 
-        await new Promise((resolve) => {
-          script.onload = resolve;
-        });
-      }
-
-      const options = {
-        key: RAZORPAY_KEY_ID,
-        amount: paymentAmount * 100,
-        currency: 'INR',
-        name: 'JSTECHSOLUTION - Special Offer',
-        description: isGoogleService ? `Special - ${paymentService} for ₹999` :
-          paymentService.includes('Consultation') ? `Expert Consultation - ${paymentService} for ₹1` :
-            `Advance Booking - ${paymentService}`,
-        image: '/logo.png',
-        handler: function (response: any) {
-          setIsSuccessFormOpen(true);
-          setSuccessFormData(prev => ({
-            ...prev,
-            service: paymentService,
-            amount: paymentAmount.toString()
-          }));
-          setIsPaymentOpen(false);
-
-          if (isFlashSale) {
-            setHasFlashSaleOccurred(true);
-            localStorage.setItem('flashSaleOccurred', 'true');
-          }
-        },
-        prefill: {
-          name: formData.name || 'Customer',
-          email: formData.email || 'customer@example.com',
-          contact: formData.phone || ''
-        },
-        notes: {
-          service: paymentService,
-          type: isGoogleService ? 'Google Business ₹999' :
-            paymentService.includes('Consultation') ? 'Expert Consultation ₹1' : 'Advance Booking'
-        },
-        theme: {
-          color: '#F59E0B'
-        }
-      };
-
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
-
-    } catch (error) {
-      console.error('Payment error:', error);
-      alert('Payment failed. Please try again or contact us on WhatsApp.');
-    }
-  };
 
   const getServicePrice = (serviceKey: string): number => {
+    const service = priceData[serviceKey];
+    if (!service) return 0;
+
     if (offerExpired) {
-      return priceData[serviceKey].regular;
+      return service.regular!;
     }
 
     if (serviceKey === 'consultation') return 1;
     if (serviceKey === 'google') return 999;
 
     if (isFlashSale) {
-      return Math.floor(priceData[serviceKey].special * 0.8);
+      return Math.floor(service.special! * 0.8);
     }
 
-    return isSpecialPrice ? priceData[serviceKey].special : priceData[serviceKey].regular;
+    return isSpecialPrice ? service.special! : service.regular!;
   };
 
   const getDiscountedPrice = (serviceKey: string): number => {
+    const service = priceData[serviceKey];
+    if (!service) return 0;
+
     if (offerExpired) {
-      return priceData[serviceKey].regular;
+      return service.regular!;
     }
 
     if (serviceKey === 'consultation') return 1;
@@ -546,8 +480,22 @@ const Offer: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <Helmet>
-        <title>🔥 Special Offer - Expert Consultation ₹1 + 20% FLASH SALE | JSTECHSOLUTION</title>
-        <meta name="description" content="🎯 Special Offer: Get Expert Digital Consultation for just ₹1 + 20% FLASH SALE on SMO, SEO, Web Development & more. Limited time offer!" />
+        <title>Limited Time Service Offers & Discounts | JS TECH SOLUTION</title>
+        <meta name="description" content="Grab exclusive discounts on digital marketing and web development. Basic plans starting at ₹4,999. Limited time flash sale - extra 20% off!" />
+        <meta name="keywords" content="digital marketing offers, website development discount, flash sale SEO, affordable digital services India" />
+        <link rel="canonical" href="https://JSTECHSOLUTION.in/offer" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/offer" />
+        <meta property="og:title" content="Exclusive Digital Service Offers | JS TECH SOLUTION" />
+        <meta property="og:description" content="Limited time deals on Web Dev, SEO, and Marketing. Start your project for less." />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-offer.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Limited Time Offer - JS TECH SOLUTION" />
+        <meta name="twitter:description" content="Don't miss out on these exclusive digital service discounts." />
       </Helmet>
 
       {/* Developer Reset Button */}
@@ -663,25 +611,29 @@ const Offer: React.FC = () => {
 
           {/* Quick Price Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-8 max-w-6xl mx-auto">
-            {servicesList.map((service) => (
-              <div key={service.key} className={`${priceData[service.key].gradient} text-white p-3 rounded-xl transform hover:scale-110 transition-all duration-300 shadow-lg border-2 border-white/30 text-center backdrop-blur-sm`}>
-                <div className="text-2xl mb-2">{priceData[service.key].icon}</div>
-                <div className="text-lg font-bold mb-1">
-                  ₹{getServicePrice(service.key).toLocaleString()}
+            {servicesList.map((service) => {
+              const data = priceData[service.key];
+              if (!data) return null;
+              return (
+                <div key={service.key} className={`${data.gradient} text-white p-3 rounded-xl transform hover:scale-110 transition-all duration-300 shadow-lg border-2 border-white/30 text-center backdrop-blur-sm`}>
+                  <div className="text-2xl mb-2">{data.icon}</div>
+                  <div className="text-lg font-bold mb-1">
+                    ₹{getServicePrice(service.key).toLocaleString()}
+                  </div>
+                  <div className="text-xs font-medium opacity-90">{service.label}</div>
+                  {!offerExpired && isSpecialPrice && !['consultation', 'google'].includes(service.key) && !isFlashSale && (
+                    <div className="text-[10px] bg-white/20 rounded px-1 mt-2 font-semibold">
+                      Advance: ₹{getDiscountedPrice(service.key).toLocaleString()}
+                    </div>
+                  )}
+                  {!offerExpired && isFlashSale && !['consultation', 'google'].includes(service.key) && (
+                    <div className="text-[10px] bg-purple-500/80 rounded px-1 mt-2 text-white font-semibold">
+                      FLASH SALE!
+                    </div>
+                  )}
                 </div>
-                <div className="text-xs font-medium opacity-90">{service.label}</div>
-                {!offerExpired && isSpecialPrice && !['consultation', 'google'].includes(service.key) && !isFlashSale && (
-                  <div className="text-[10px] bg-white/20 rounded px-1 mt-2 font-semibold">
-                    Advance: ₹{getDiscountedPrice(service.key).toLocaleString()}
-                  </div>
-                )}
-                {!offerExpired && isFlashSale && !['consultation', 'google'].includes(service.key) && (
-                  <div className="text-[10px] bg-purple-500/80 rounded px-1 mt-2 text-white font-semibold">
-                    FLASH SALE!
-                  </div>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* CTA Buttons */}
@@ -775,10 +727,10 @@ const Offer: React.FC = () => {
               <div key={service.key} className={`bg-white border-2 ${offerExpired ? 'border-gray-300' : 'border-blue-200'} rounded-3xl p-6 relative overflow-hidden transform hover:scale-105 transition-all duration-500 shadow-xl hover:shadow-2xl group`}>
 
                 {/* Popular Badge */}
-                {priceData[service.key].popular && !offerExpired && (
+                {priceData[service.key]?.popular && !offerExpired && (
                   <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-500 to-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold rotate-12 shadow-lg z-10 animate-pulse">
                     <Crown className="h-3 w-3 inline mr-1" />
-                    {priceData[service.key].badge}
+                    {priceData[service.key]?.badge}
                   </div>
                 )}
 
@@ -812,9 +764,9 @@ const Offer: React.FC = () => {
                   <div className="text-4xl font-bold text-gray-800 mb-3">
                     ₹{getServicePrice(service.key).toLocaleString()}
                   </div>
-                  <div className="text-xl font-semibold text-gray-900 mb-2">{priceData[service.key].name}</div>
-                  {!offerExpired && (
-                    <div className="text-gray-500 line-through text-lg">₹{priceData[service.key].regular.toLocaleString()}</div>
+                  <div className="text-xl font-semibold text-gray-900 mb-2">{priceData[service.key]?.name}</div>
+                  {!offerExpired && priceData[service.key] && (
+                    <div className="text-gray-500 line-through text-lg">₹{priceData[service.key]?.regular.toLocaleString()}</div>
                   )}
 
                   {/* Discount Badges */}
@@ -837,7 +789,7 @@ const Offer: React.FC = () => {
 
                 {/* Features List */}
                 <ul className="space-y-3 mb-6 text-sm">
-                  {priceData[service.key].features.map((feature, index) => (
+                  {priceData[service.key]?.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3 group-hover:translate-x-2 transition-transform duration-300">
                       <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
@@ -876,7 +828,7 @@ const Offer: React.FC = () => {
                     }
                   </button>
                   <button
-                    onClick={() => openQuickForm(priceData[service.key].name)}
+                    onClick={() => openQuickForm(priceData[service.key]?.name || '')}
                     className="w-full py-3 rounded-2xl font-bold transition-all hover:scale-105 text-center bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white text-sm border-2 border-blue-300 shadow-lg hover:shadow-xl"
                   >
                     💬 {offerExpired ? 'Get Detailed Quote' : 'Free Expert Consultation'}
@@ -1053,25 +1005,40 @@ const Offer: React.FC = () => {
                 </div>
               </div>
 
-              <button
-                onClick={initiateRazorpayPayment}
-                className={`w-full py-4 rounded-2xl font-bold transition-all hover:scale-105 flex items-center justify-center gap-3 text-lg shadow-lg ${offerExpired
-                  ? 'bg-blue-500 hover:bg-blue-600 text-white border-2 border-blue-400'
-                  : paymentService.includes('Consultation')
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-2 border-purple-400'
-                    : isGoogleService
-                      ? 'bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white border-2 border-yellow-400'
-                      : isFlashSale
-                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-2 border-purple-400'
-                        : 'bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white border-2 border-green-400'
-                  }`}
-              >
-                <CreditCard className="h-5 w-5" />
-                {offerExpired
-                  ? `Pay ₹${paymentAmount.toLocaleString()}`
-                  : `Pay ₹${paymentAmount.toLocaleString()} Now`
-                }
-              </button>
+              {/* UPI Payment Section */}
+              <div className="bg-white border-2 border-slate-100 rounded-3xl p-5 shadow-sm text-center">
+                <div className="text-slate-500 font-bold text-sm mb-4 uppercase tracking-wider">Pay securely via UPI</div>
+                <div className="flex justify-center mb-6">
+                  <img 
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(`upi://pay?pa=kamleshks123@ybl&pn=JS%20Tech%20Solution&am=${paymentAmount}&cu=INR`)}`} 
+                    alt="Scan to Pay"
+                    className="w-40 h-40 md:w-48 md:h-48 object-contain rounded-2xl border-4 border-slate-50 p-2 shadow-inner"
+                  />
+                </div>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={`upi://pay?pa=kamleshks123@ybl&pn=JS%20Tech%20Solution&am=${paymentAmount}&cu=INR`}
+                    className="w-full py-4 rounded-[1.5rem] font-black text-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-3 shadow-[0_10px_20px_-10px_rgba(34,197,94,0.4)] bg-gradient-to-r from-green-500 to-emerald-600 text-white active:scale-95"
+                    onClick={() => {
+                        // Mark as success intent so user can fill the success form immediately upon click
+                        setIsSuccessFormOpen(true);
+                        setSuccessFormData(prev => ({ ...prev, service: paymentService, amount: paymentAmount.toString() }));
+                        setIsPaymentOpen(false);
+                    }}
+                  >
+                    <Smartphone className="h-6 w-6" /> Pay ₹{paymentAmount.toLocaleString()} via UPI App
+                  </a>
+                  <button
+                    onClick={() => {
+                       navigator.clipboard.writeText('kamleshks123@ybl');
+                       alert("UPI ID copied: kamleshks123@ybl");
+                    }}
+                    className="w-full py-3 rounded-xl font-bold text-sm text-slate-600 bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:text-slate-800 flex justify-center items-center gap-2 transition-colors"
+                  >
+                    <Copy className="h-4 w-4" /> Copy UPI ID: kamleshks123@ybl
+                  </button>
+                </div>
+              </div>
 
               <button
                 onClick={() => { setIsPaymentOpen(false); setIsFormOpen(true); }}
@@ -1237,9 +1204,9 @@ const Offer: React.FC = () => {
                   className="w-full px-4 py-3 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base"
                 >
                   <option value="">Select your service</option>
-                  {servicesList.map(service => (
-                    <option key={service.key} value={priceData[service.key].name}>
-                      {priceData[service.key].name} - ₹{getServicePrice(service.key).toLocaleString()}
+                   {servicesList.filter(s => !!priceData[s.key]).map(service => (
+                    <option key={service.key} value={priceData[service.key]?.name}>
+                      {priceData[service.key]?.name} - ₹{getServicePrice(service.key).toLocaleString()}
                     </option>
                   ))}
                 </select>
@@ -1267,7 +1234,7 @@ const Offer: React.FC = () => {
         </div>
       )}
 
-      <style jsx>{`
+      <style>{`
         @keyframes pop-in {
           0% { transform: scale(0.8); opacity: 0; }
           100% { transform: scale(1); opacity: 1; }

@@ -5,13 +5,8 @@ import {
     MessageCircle,
     CheckCircle,
     Rocket,
-    Send,
-    Smartphone,
-    BarChart3,
-    ArrowRight,
     Megaphone,
     Target,
-    Zap,
     Image,
     FileText,
     Volume2,
@@ -19,7 +14,7 @@ import {
     ShieldCheck,
     Users,
     ChevronRight,
-    Search,
+    Zap,
     MailCheck,
     AlertTriangle
 } from 'lucide-react';
@@ -37,7 +32,21 @@ const BulkMessaging: React.FC = () => {
         <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
             <Helmet>
                 <title>Bulk WhatsApp Messaging Services | Campaigns | JS TECH SOLUTION</title>
-                <meta name="description" content="Send promotional and transactional bulk WhatsApp messages at scale. High open rates, personalized campaigns, and media message support." />
+                <meta name="description" content="Send promotional and transactional bulk WhatsApp messages at scale. High open rates, personalized campaigns, and media message support for businesses." />
+                <meta name="keywords" content="bulk WhatsApp messaging, WhatsApp marketing campaigns, promotional WhatsApp messages, broadcast messages India, JS TECH SOLUTION WhatsApp" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/whatsapp-bulk-messaging" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/whatsapp-bulk-messaging" />
+                <meta property="og:title" content="JS TECH SOLUTION | Reach Millions Instantly via WhatsApp" />
+                <meta property="og:description" content="Hyper-personalized broadcasts with 98% open rates using our Official API Campaign Dashboard." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-bulk.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Bulk WhatsApp Marketing - JS TECH SOLUTION" />
+                <meta name="twitter:description" content="Send 100,000+ messages daily with complete safety and analytics." />
             </Helmet>
 
             <Breadcrumbs />

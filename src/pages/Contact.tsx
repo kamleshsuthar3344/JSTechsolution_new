@@ -122,15 +122,25 @@ I'm excited to discuss my project with you and get started!`;
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>Contact JS TECH SOLUTION | Website Development & Digital Marketing Agency</title>
+        <title>Contact Us | Get a Free Digital Strategy Consultation | JS TECH SOLUTION</title>
         <meta
           name="description"
-          content="Get in touch with JS TECH SOLUTION for professional website development, SEO services, and digital marketing solutions. Start your project today!"
+          content="Ready to grow your business? Contact JS TECH SOLUTION today. Get a free consultation for website development, SEO, and digital marketing. Reach us at +91 82399 33344."
         />
-        <meta
-          name="keywords"
-          content="contact JS TECH SOLUTION, website development, digital marketing, SEO services, social media marketing, web design agency"
-        />
+        <meta name="keywords" content="contact JS TECH SOLUTION, digital marketing consultant Jaipur, web development inquiry, free SEO consultation India, business growth contact" />
+        <link rel="canonical" href="https://JSTECHSOLUTION.in/contact" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/contact" />
+        <meta property="og:title" content="Contact JS TECH SOLUTION | Let's Talk Growth" />
+        <meta property="og:description" content="Reach out to the experts. Start your project with a free strategy session today." />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-contact.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Get in Touch - JS TECH SOLUTION" />
+        <meta name="twitter:description" content="Professional digital solutions are just a message away." />
       </Helmet>
 
       {/* Enhanced Hero Section */}

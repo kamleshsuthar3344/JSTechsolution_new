@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import InfoModal from "../components/InfoModal";
 import { waLink, TEL_LINK, PHONE_DISPLAY } from "../config/contact";
-import { Search, CheckCircle, ArrowRight, Link as LinkIcon, BarChart3, Shield, Zap, FileText, Globe, MessageCircle, Target, TrendingUp, Award, Star } from "lucide-react";
+import { Search, CheckCircle, ArrowRight, Link as LinkIcon, BarChart3, Shield, FileText, MessageCircle, Target, TrendingUp, Award } from "lucide-react";
 import { backlinkServices as pricingBacklinkServices } from "../data/pricing";
 
 const Backlink = () => {
@@ -109,8 +109,22 @@ Please send me a detailed SEO audit report for my website.`;
     return (
         <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors">
             <Helmet>
-                <title>Free Website SEO Audit & Backlink Services - JS TECH SOLUTION</title>
-                <meta name="description" content="Get a free website SEO audit to identify issues affecting your search rankings. Build quality backlinks with our expert backlink services." />
+                <title>Free SEO Audit & High Authority Backlinks | JS TECH SOLUTION</title>
+                <meta name="description" content="Get a free website SEO audit report and discover ranking opportunities. Build high authority backlinks (DA 50+) to boost your Google search results." />
+                <meta name="keywords" content="free SEO audit tool, buy quality backlinks, high DA guest posts, SEO authority building India, JS TECH SOLUTION backlink services" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/backlinks" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/backlinks" />
+                <meta property="og:title" content="JS TECH SOLUTION | SEO Audit & Backlinks" />
+                <meta property="og:description" content="Rank higher on Google. Get your free report and start your authority journey." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-backlinks.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Dominante SEO with JS TECH" />
+                <meta name="twitter:description" content="Free audit tools and premium backlink packages for serious growth." />
             </Helmet>
 
             <InfoModal

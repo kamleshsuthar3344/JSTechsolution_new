@@ -77,12 +77,25 @@ const Services: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
       <Helmet>
-        <title>Our Services | JS TECH SOLUTION</title>
+        <title>Our Digital Services | Complete Web & Marketing Solutions | JS TECH SOLUTION</title>
         <meta
           name="description"
-          content="Explore our comprehensive range of digital services including Website Development, SEO, Digital Marketing, and more."
+          content="Explore our wide range of professional digital services including custom Web Development, data-driven SEO, Social Media Marketing, and specialized Growth Services."
         />
+        <meta name="keywords" content="digital services agency, web development services, SEO marketing solutions, social media management, business growth services Jaipur" />
         <link rel="canonical" href="https://JSTECHSOLUTION.in/services" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/services" />
+        <meta property="og:title" content="JS TECH SOLUTION | Full-Service Digital Agency" />
+        <meta property="og:description" content="One-stop shop for all your digital needs. From design to deployment." />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-services.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Professional Digital Services" />
+        <meta name="twitter:description" content="Elevate your brand with our expert digital solutions." />
       </Helmet>
 
       <InquiryModal

@@ -121,8 +121,22 @@ const Blog: React.FC = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
             <Helmet>
-                <title>Blog - Digital Marketing, SEO & Business Tips | JS TECH SOLUTION</title>
-                <meta name="description" content="Read the latest articles on SEO, digital marketing, web development, design, and business growth tips from JS TECH SOLUTION experts." />
+                <title>JS Tech Solution Blog | Digital Marketing, SEO & Tech Insights</title>
+                <meta name="description" content="Stay ahead with the JS TECH SOLUTION blog. Expert insights on SEO strategies, social media marketing trends, web development tips, and business growth hacks for 2024." />
+                <meta name="keywords" content="digital marketing blog India, SEO strategy blog, web development tips, social media marketing trends 2024, business growth insights" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/blog" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/blog" />
+                <meta property="og:title" content="JS TECH SOLUTION Blog | Knowledge for Growth" />
+                <meta property="og:description" content="Expert-led articles on scaling your brand in the digital age. SEO, Marketing, and Tech." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-blog.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Tech & Marketing Insights - JS TECH SOLUTION" />
+                <meta name="twitter:description" content="Unlock the secrets to digital success with our latest blog posts." />
             </Helmet>
 
             {/* Hero Section */}

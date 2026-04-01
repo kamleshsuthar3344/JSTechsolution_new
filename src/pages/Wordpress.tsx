@@ -40,8 +40,22 @@ const Wordpress: React.FC = () => {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans">
             <Helmet>
-                <title>WordPress Development Services | Custom Themes & Plugins | JSTECHSOLUTION</title>
-                <meta name="description" content="Expert WordPress development services. Custom themes, plugin development, speed optimization, and secure website solutions for your business." />
+                <title>WordPress Development | Secure & Scalable Websites | JS TECH SOLUTION</title>
+                <meta name="description" content="Professional WordPress development services. Custom themes, plugin development, and secure solutions for businesses looking for flexibility and power." />
+                <meta name="keywords" content="WordPress development Jaipur, custom WP themes, WordPress maintenance India, professional blogging websites" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/wordpress-development" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/wordpress-development" />
+                <meta property="og:title" content="JS TECH SOLUTION | WordPress Experts" />
+                <meta property="og:description" content="Scaling the web with powerful WordPress solutions. Secure, fast, and feature-rich." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-wordpress.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Professional WordPress Sites" />
+                <meta name="twitter:description" content="Customized WordPress solutions for your unique business needs." />
             </Helmet>
 
             <InquiryModal

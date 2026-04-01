@@ -45,8 +45,22 @@ const UiUxDesign: React.FC = () => {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans">
             <Helmet>
-                <title>UI/UX Design Services | Mobile & Web Design | JSTECHSOLUTION</title>
-                <meta name="description" content="Premium UI/UX design services. We create intuitive, engaging, and beautiful digital experiences for web and mobile applications." />
+                <title>UI/UX Design Services | Mobile & Web Design | JS TECH SOLUTION</title>
+                <meta name="description" content="Elevate your product with expert UI/UX design. We create intuitive, high-converting, and beautiful digital experiences for web and mobile. Figma experts." />
+                <meta name="keywords" content="UI/UX design Jaipur, mobile app design, web design services, user experience design, Figma designers India" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/ui-ux-design" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/ui-ux-design" />
+                <meta property="og:title" content="JS TECH SOLUTION | Premium UI/UX Design" />
+                <meta property="og:description" content="Design that drives engagement. Transform your vision into a stunning digital reality." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-uiux.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="UI/UX Design Excellence" />
+                <meta name="twitter:description" content="User-centric design solutions for modern businesses." />
             </Helmet>
 
             {/* Hero Section */}

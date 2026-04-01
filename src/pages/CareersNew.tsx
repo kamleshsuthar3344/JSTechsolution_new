@@ -13,7 +13,6 @@ import {
   Mail,
   CheckCircle,
   Star,
-  GraduationCap,
   Code,
   TrendingUp,
   Heart,
@@ -23,10 +22,7 @@ import {
   Zap,
   Crown,
   Palette,
-  Camera,
   BarChart3,
-  PhoneCall,
-  Video,
   Megaphone
 } from "lucide-react";
 
@@ -635,8 +631,22 @@ I'm excited to join the JS TECH SOLUTION team and contribute to your growth jour
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-x-hidden">
       <Helmet>
-        <title>Careers - Join JS TECH SOLUTION Team | 50+ Job Openings</title>
-        <meta name="description" content="Join JS TECH SOLUTION team! 50+ openings in Website Development, Digital Marketing, Sales, Design, HR and more. Apply now for exciting career opportunities!" />
+        <title>Careers | Join the JS TECH SOLUTION Team | Growth Opportunities</title>
+        <meta name="description" content="Explore exciting career opportunities at JS TECH SOLUTION. We're hiring Website Developers, SEO Experts, Digital Marketers, and more. Build your future with India's fastest-growing digital agency." />
+        <meta name="keywords" content="digital marketing jobs Jaipur, web developer openings India, SEO career opportunities, JS TECH SOLUTION careers, hire digital marketing team" />
+        <link rel="canonical" href="https://JSTECHSOLUTION.in/careers" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/careers" />
+        <meta property="og:title" content="JS TECH SOLUTION Careers | Let's Build Together" />
+        <meta property="og:description" content="Join a culture of innovation and excellence. Apply for our latest job openings today!" />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-careers.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Join JS TECH SOLUTION" />
+        <meta name="twitter:description" content="Scale your career with the best in the digital industry." />
       </Helmet>
 
       {/* Success Message */}

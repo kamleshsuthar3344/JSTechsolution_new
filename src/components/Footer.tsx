@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                       target.style.display = 'none';
                       const fallback = document.createElement('div');
                       fallback.className = 'h-20 w-20 lg:h-32 lg:w-32 bg-gradient-to-r from-yellow-400 to-purple-600 rounded-full flex items-center justify-center text-white text-xl lg:text-2xl font-bold';
-                      fallback.textContent = 'ES';
+                      fallback.textContent = 'JS';
                       target.parentNode?.insertBefore(fallback, target);
                     }}
                   />

@@ -16,11 +16,11 @@ app.get('/api/health', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Earning Sharthi API is running');
+    res.send('JS Tech Solution API is running');
 });
 
 // Database Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/earningsharthi')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/jstechsolution')
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.error('MongoDB Connection Error:', err));
 

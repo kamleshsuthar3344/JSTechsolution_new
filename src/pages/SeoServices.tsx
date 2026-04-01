@@ -21,6 +21,8 @@ import {
     MessageCircle
 } from "lucide-react";
 import { seoServices, seoAuditService } from "../data/pricing";
+import ServiceSchema from "../components/Schema/ServiceSchema";
+import BreadcrumbSchema from "../components/Schema/BreadcrumbSchema";
 
 // Modal Component for detailed service view
 const InfoModal: React.FC<{ isOpen: boolean; onClose: () => void; title: string; description: string; details: string[] }> = ({ isOpen, onClose, title, description, details }) => {
@@ -244,9 +246,38 @@ const SeoServices: React.FC = () => {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans">
             <Helmet>
-                <title>SEO Services - Organic, E-Commerce, AI SEO & Backlinks | JSTECHSOLUTION</title>
-                <meta name="description" content="Expert SEO services in India: Organic SEO, E-Commerce optimization, AI-driven strategies, High-quality Backlinks, and Consultancy. Boost your rankings today." />
+                <title>Expert SEO Services | Rank #1 on Google | JS TECH SOLUTION</title>
+                <meta name="description" content="Dominate search results with expert SEO services. Organic SEO, E-commerce SEO, AI-driven strategies, and high-quality backlinks designed to grow your revenue." />
+                <meta name="keywords" content="SEO services India, rank #1 on Google, best SEO agency Jaipur, organic traffic growth, backlink building, search engine optimization, JS TECH SOLUTION SEO" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/seo-services" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/seo-services" />
+                <meta property="og:title" content="JS TECH SOLUTION | SEO Success & Rankings" />
+                <meta property="og:description" content="Witness the power of data-driven SEO. Get your website to the first page of Google." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-seo.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Dominate Search Rankings - JS TECH SOLUTION" />
+                <meta name="twitter:description" content="Expert SEO strategies that deliver measurable results and traffic." />
             </Helmet>
+
+            <ServiceSchema 
+                name="SEO Services" 
+                description="Dominate search results with expert SEO services. Organic SEO, E-commerce SEO, AI-driven strategies, and high-quality backlinks designed to grow your revenue." 
+                provider={{ name: "JS TECH SOLUTION" }} 
+                areaServed="India" 
+                url="https://jstechsolution.in/seo-services" 
+            />
+            <BreadcrumbSchema 
+                items={[
+                    { name: "Home", item: "https://jstechsolution.in/" },
+                    { name: "Services", item: "https://jstechsolution.in/services" },
+                    { name: "SEO Services", item: "https://jstechsolution.in/seo-services" }
+                ]} 
+            />
 
             <Breadcrumbs />
 

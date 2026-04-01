@@ -1,7 +1,7 @@
 {
-    "name": "earningsharthi-backend",
+    "name": "jstechsolution-backend",
     "version": "1.0.0",
-    "description": "Backend API for Earning Sharthi",
+    "description": "Backend API for JS Tech Solution",
     "main": "server.js",
     "scripts": {
         "start": "node server.js",

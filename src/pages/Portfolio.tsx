@@ -1,11 +1,10 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { waLink, TEL_LINK, PHONE_DISPLAY } from '../config/contact';
-import { ExternalLink, Filter, Star, TrendingUp, Users, Clock, Play, Award, Target, Zap } from 'lucide-react';
+import { useState, useMemo, useEffect } from 'react';
+import { waLink, TEL_LINK } from '../config/contact';
+import { ExternalLink, Filter, Star, TrendingUp, Users, Play, Award, Target, Zap } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [hoveredProject, setHoveredProject] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(null);
 
@@ -252,15 +251,12 @@ const Portfolio = () => {
     </section>
   );
 
-  const ProjectVideo = ({ project }) => (
+  const ProjectVideo = ({ project }: { project: any }) => (
     <div className="relative rounded-2xl overflow-hidden group cursor-pointer"
       onClick={() => setVideoPlaying(videoPlaying === project.id ? null : project.id)}>
       {videoPlaying === project.id ? (
         <video
           src={project.video}
-          autoPlay
-          loop
-          muted
           className="w-full h-64 object-cover rounded-2xl"
         />
       ) : (
@@ -284,9 +280,22 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
-        <title>Portfolio | JS TECH SOLUTION – Premium Digital Solutions & Case Studies</title>
-        <meta name="description" content="Explore JS TECH SOLUTION's award-winning portfolio featuring branding, web development, e-commerce, and digital marketing success stories with proven results." />
-        <meta name="keywords" content="portfolio, case studies, web development, digital marketing, branding, e-commerce, success stories" />
+        <title>Our Portfolio | Proven Digital Success Stories | JS TECH SOLUTION</title>
+        <meta name="description" content="Explore our extensive portfolio of web development, e-commerce, and digital marketing projects. See how we've helped 150+ clients achieve 5x growth through innovation and result-oriented strategies." />
+        <meta name="keywords" content="digital marketing portfolio, web development case studies, e-commerce success stories, JS TECH SOLUTION projects, Jaipur digital agency portfolio" />
+        <link rel="canonical" href="https://JSTECHSOLUTION.in/portfolio" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/portfolio" />
+        <meta property="og:title" content="JS TECH SOLUTION | Our Work & Case Studies" />
+        <meta property="og:description" content="Witness the transformation. Explore our award-winning digital projects and see the results we deliver." />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-portfolio.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="JS TECH SOLUTION Portfolio" />
+        <meta name="twitter:description" content="Check out our latest masterpieces in web and marketing." />
       </Helmet>
 
       {/* Enhanced Hero Section with Animation */}
@@ -359,12 +368,12 @@ const Portfolio = () => {
                   <div className="text-4xl font-bold">{stat.value}</div>
                 </div>
                 <div className="text-lg font-semibold opacity-90">{stat.label}</div>
-                <div className="w-full bg-white bg-opacity-20 h-1 rounded-full mt-3">
+                  <div className="w-full bg-white bg-opacity-20 h-1 rounded-full mt-3">
                   <div
                     className="bg-white h-1 rounded-full transition-all duration-1000 ease-out"
                     style={{ width: '0%' }}
-                    onMouseEnter={(e) => e.target.style.width = '100%'}
-                    onMouseLeave={(e) => e.target.style.width = '0%'}
+                    onMouseEnter={(e) => { (e.target as HTMLElement).style.width = '100%' }}
+                    onMouseLeave={(e) => { (e.target as HTMLElement).style.width = '0%' }}
                   ></div>
                 </div>
               </div>
@@ -419,8 +428,8 @@ const Portfolio = () => {
               <div
                 key={project.id}
                 className="bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:scale-105 group"
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
+                onMouseEnter={() => {}}
+                onMouseLeave={() => {}}
                 style={{
                   animationDelay: `${index * 100}ms`,
                   animation: 'fadeInUp 0.6s ease-out forwards'
@@ -596,7 +605,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;

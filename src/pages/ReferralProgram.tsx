@@ -58,10 +58,24 @@ const ReferralProgram: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-yellow-50 to-orange-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
             <Helmet>
-                <title>Referral Program - Earn 25% Commission | JS TECH SOLUTION</title>
-                <meta name="description" content="Join JS TECH SOLUTION's referral program and earn 25% commission on every successful referral. Unlimited earning potential. Sign up for free today!" />
+                <title>Refer & Earn 25% | Affiliate Program | JS TECH SOLUTION</title>
+                <meta name="description" content="Earn massive commissions! Join the JS TECH SOLUTION Referral Program and earn 25% on every successful referral for web development and marketing services." />
+                <meta name="keywords" content="digital marketing referral program, earn commission India, affiliate marketing Jaipur, refer and earn 25%, JS TECH SOLUTION affiliate" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/referral-program" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/referral-program" />
+                <meta property="og:title" content="Refer JS TECH SOLUTION - Build Wealth" />
+                <meta property="og:description" content="Turn your network into net worth. High commissions, instant payouts." />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-referral.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Earn with JS TECH SOLUTION" />
+                <meta name="twitter:description" content="Join our referral network and earn 25% on every successful sale." />
             </Helmet>
 
             {/* Hero Section */}

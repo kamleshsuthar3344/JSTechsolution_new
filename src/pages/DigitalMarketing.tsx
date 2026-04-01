@@ -186,8 +186,22 @@ const DigitalMarketing: React.FC = () => {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans">
             <Helmet>
-                <title>Best Digital Marketing Company in Rajasthan, Gurugram & Noida | JS TECH SOLUTION</title>
-                <meta name="description" content="Dominate your market with the best digital marketing company in Jaipur, Rajasthan. Expert SEO, Social Media Marketing, and Google Ads management." />
+                <title>Best Digital Marketing Agency in Jaipur & India | JS TECH SOLUTION</title>
+                <meta name="description" content="Grow your business with the best digital marketing agency. Expert Social Media Marketing, Content Writing, Graphic Design, and WhatsApp Marketing strategies that deliver results." />
+                <meta name="keywords" content="digital marketing agency Jaipur, best social media marketing India, professional content writing, graphic design services, WhatsApp marketing agency" />
+                <link rel="canonical" href="https://JSTECHSOLUTION.in/digital-marketing" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://JSTECHSOLUTION.in/digital-marketing" />
+                <meta property="og:title" content="JS TECH SOLUTION | Expert Digital Marketing Services" />
+                <meta property="og:description" content="Dominate your market with our data-driven digital marketing strategies. Free consultation today!" />
+                <meta property="og:image" content="https://JSTECHSOLUTION.in/og-marketing.jpg" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Scale Your Brand - JS TECH SOLUTION" />
+                <meta name="twitter:description" content="The ultimate digital growth partner for modern brands." />
             </Helmet>
 
             <Breadcrumbs />

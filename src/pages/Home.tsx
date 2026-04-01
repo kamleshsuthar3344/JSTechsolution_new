@@ -29,10 +29,24 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900 overflow-hidden transition-colors duration-300">
       <Helmet>
-        <title>India's Top Website Development & Digital Marketing Company | Jaipur, Rajasthan</title>
-        <meta name="description" content="JS TECH SOLUTION: The best digital marketing and website development company in Rajasthan. Affordable e-commerce stores from ₹4,999. Grow your business nationwide with our expert SEO and marketing." />
-        <meta name="keywords" content="top website development company India, best digital marketing company Jaipur, web design Gurugram, SEO services Noida, e-commerce website development India" />
+        <title>Best Website Development & Digital Marketing Agency in Jaipur | JS TECH SOLUTION</title>
+        <meta name="description" content="JS TECH SOLUTION: Expert digital marketing & website development in Jaipur, India. Custom e-commerce starting at ₹4,999. Ranked #1 for SEO, Web Design, and ROI-driven marketing." />
+        <meta name="keywords" content="website development Jaipur, digital marketing India, SEO services Rajasthan, e-commerce development, custom web design, JS TECH SOLUTION" />
         <link rel="canonical" href="https://JSTECHSOLUTION.in/" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://JSTECHSOLUTION.in/" />
+        <meta property="og:title" content="Best Website Development & Digital Marketing Agency in Jaipur" />
+        <meta property="og:description" content="Transform your business with affordable, high-performance digital solutions from JS TECH SOLUTION." />
+        <meta property="og:image" content="https://JSTECHSOLUTION.in/og-image.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://JSTECHSOLUTION.in/" />
+        <meta name="twitter:title" content="JS TECH SOLUTION | Driving Digital Growth" />
+        <meta name="twitter:description" content="Top-rated Web Development & SEO Agency. E-commerce starting from ₹4,999." />
+        <meta name="twitter:image" content="https://JSTECHSOLUTION.in/twitter-card.jpg" />
       </Helmet>
 
       <InquiryModal

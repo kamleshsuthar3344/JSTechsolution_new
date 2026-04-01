@@ -3,7 +3,7 @@
 
   <!-- Home -->
   <url>
-    <loc>https://www.earningsharthi.in/</loc>
+    <loc>https://www.jstechsolution.in/</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
@@ -11,7 +11,7 @@
 
   <!-- About -->
   <url>
-    <loc>https://www.earningsharthi.in/about</loc>
+    <loc>https://www.jstechsolution.in/about</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
@@ -19,7 +19,7 @@
 
   <!-- Services -->
   <url>
-    <loc>https://www.earningsharthi.in/services</loc>
+    <loc>https://www.jstechsolution.in/services</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
@@ -27,43 +27,85 @@
 
   <!-- Core Service Pages -->
   <url>
-    <loc>https://www.earningsharthi.in/website-development</loc>
+    <loc>https://www.jstechsolution.in/website-development</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/digital-marketing</loc>
+    <loc>https://www.jstechsolution.in/digital-marketing</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/seo-services</loc>
+    <loc>https://www.jstechsolution.in/seo-services</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/shopify-development</loc>
+    <loc>https://www.jstechsolution.in/whatsapp-business-api</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.jstechsolution.in/whatsapp/bulk-messaging</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/wordpress-development</loc>
+    <loc>https://www.jstechsolution.in/whatsapp/setup-onboarding</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/ui-ux-design</loc>
+    <loc>https://www.jstechsolution.in/whatsapp/support-automation</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.jstechsolution.in/whatsapp/chatbot-development</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.jstechsolution.in/whatsapp/crm-integration</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.jstechsolution.in/whatsapp/campaign-analytics</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.jstechsolution.in/shopify-development</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.jstechsolution.in/wordpress-development</loc>
+    <lastmod>2024-12-25</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.jstechsolution.in/ui-ux-design</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/backlink</loc>
+    <loc>https://www.jstechsolution.in/backlink</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
@@ -71,13 +113,13 @@
 
   <!-- Partnership & Referral -->
   <url>
-    <loc>https://www.earningsharthi.in/partnership</loc>
+    <loc>https://www.jstechsolution.in/partnership</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/referral-program</loc>
+    <loc>https://www.jstechsolution.in/referral-program</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
@@ -85,19 +127,19 @@
 
   <!-- Content & Careers -->
   <url>
-    <loc>https://www.earningsharthi.in/blog</loc>
+    <loc>https://www.jstechsolution.in/blog</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.7</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/careers</loc>
+    <loc>https://www.jstechsolution.in/careers</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/faq</loc>
+    <loc>https://www.jstechsolution.in/faq</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
@@ -105,27 +147,27 @@
 
   <!-- Pricing & Offer -->
   <url>
-    <loc>https://www.earningsharthi.in/pricing</loc>
+    <loc>https://www.jstechsolution.in/pricing</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/offer</loc>
+    <loc>https://www.jstechsolution.in/offer</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.earningsharthi.in/portfolio</loc>
+    <loc>https://www.jstechsolution.in/portfolio</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.earningsharthi.in/contact</loc>
+    <loc>https://www.jstechsolution.in/contact</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -133,13 +175,13 @@
 
   <!-- Legal -->
   <url>
-    <loc>https://www.earningsharthi.in/terms</loc>
+    <loc>https://www.jstechsolution.in/terms</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.earningsharthi.in/privacy</loc>
+    <loc>https://www.jstechsolution.in/privacy</loc>
     <lastmod>2024-12-25</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
